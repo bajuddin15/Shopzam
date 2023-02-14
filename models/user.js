@@ -6,7 +6,7 @@ const crypto = require("crypto");
 
 const userSchema = new mongoose.Schema(
   {
-    fullName: {
+    firstName: {
       type: String,
       required: [true, "Please Enter First Name"],
       maxLength: [30, "Name cannot exceed 30 characters"],
@@ -28,17 +28,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please Enter Your Password"],
       minLength: [8, "Password should be greater than 8 characters"],
-      select: false,
     },
-    avatar: {
-      public_id: {
-        type: String,
-        required: true,
-      },
-      url: {
-        type: String,
-        required: true,
-      },
+    pic: {
+      type: String,
+      required: true,
+      default:
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },
     role: {
       type: String,
