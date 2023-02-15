@@ -1,0 +1,25 @@
+@import "../../css-config//mixins.scss";
+
+.products-header {
+  margin: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .p-main-header {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+
+    @include md {
+      font-size: 30px;
+    }
+  }
+
+  .p-cats {
+    display: none;
+    @include md {
+    }
+  }
+}

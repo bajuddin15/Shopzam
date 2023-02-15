@@ -8,6 +8,7 @@
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 0px 20px;
+  z-index: 9999;
   .headerContainer {
     display: flex;
     align-items: center;
@@ -20,9 +21,13 @@
 
     .left {
       .app-logo {
-        font-size: 40px;
+        font-size: 28px;
         font-weight: 700;
         color: #6d7e87;
+
+        @include md {
+          font-size: 40px;
+        }
       }
     }
     .right {
@@ -33,13 +38,24 @@
         list-style-type: none;
         gap: 50px;
 
-        li {
+        .nav-link {
+          text-transform: uppercase;
           font-size: 16px;
+          padding-bottom: 2px;
           cursor: pointer;
 
           &:hover {
+            padding-bottom: 0;
             border-bottom: 2px solid #6d7e87;
           }
+        }
+        .active {
+          padding-bottom: 0;
+          border-bottom: 2px solid #6d7e87;
+        }
+        .inactive {
+          padding-bottom: 2px;
+          border-bottom: none;
         }
       }
       .icons {
