@@ -6,11 +6,7 @@
   .menu-items {
     display: flex;
     flex-direction: column;
-    min-width: 300px;
     background-color: white;
-    border: 1px solid rgba(119, 118, 118, 0.3);
-    border-top: 2px solid #6d7e87;
-    padding: 20px;
     gap: 15px;
 
     .menu-item {
