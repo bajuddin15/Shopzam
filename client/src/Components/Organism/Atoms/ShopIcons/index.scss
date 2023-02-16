@@ -1,0 +1,20 @@
+.shop-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    min-width: 20px;
+    text-align: center;
+    background-color: #6d7e87;
+    padding: 2.5px;
+    position: absolute;
+    top: -0.8px;
+    right: -12px;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 10px;
+    color: white;
+  }
+}
