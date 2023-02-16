@@ -1,83 +1,86 @@
 @import "../../css-config//mixins.scss";
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 90px;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding: 0px 20px;
-  z-index: 9999;
-  .headerContainer {
+  display: none;
+  @include md {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
-    @include md {
-      max-width: 1200px;
-    }
+    justify-content: center;
+    height: 90px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 0px 20px;
+    z-index: 9999;
+    .headerContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      width: 100%;
+      @include md {
+        max-width: 1200px;
+      }
 
-    .left {
-      .app-logo {
-        font-size: 28px;
-        font-weight: 700;
-        color: #6d7e87;
+      .left {
+        .app-logo {
+          font-size: 28px;
+          font-weight: 700;
+          color: #6d7e87;
 
-        @include md {
-          font-size: 40px;
+          @include md {
+            font-size: 40px;
+          }
         }
       }
-    }
-    .right {
-      display: flex;
-      gap: 80px;
-      ul {
+      .right {
         display: flex;
-        list-style-type: none;
-        gap: 50px;
+        gap: 80px;
+        ul {
+          display: flex;
+          list-style-type: none;
+          gap: 50px;
 
-        .nav-link {
-          text-transform: uppercase;
-          font-size: 16px;
-          padding-bottom: 2px;
-          cursor: pointer;
+          .nav-link {
+            text-transform: uppercase;
+            font-size: 16px;
+            padding-bottom: 2px;
+            cursor: pointer;
 
-          &:hover {
+            &:hover {
+              padding-bottom: 0;
+              border-bottom: 2px solid #6d7e87;
+            }
+          }
+          .active {
             padding-bottom: 0;
             border-bottom: 2px solid #6d7e87;
           }
+          .inactive {
+            padding-bottom: 2px;
+            border-bottom: none;
+          }
         }
-        .active {
-          padding-bottom: 0;
-          border-bottom: 2px solid #6d7e87;
-        }
-        .inactive {
-          padding-bottom: 2px;
-          border-bottom: none;
-        }
-      }
-      .icons {
-        display: flex;
-        cursor: pointer;
+        .icons {
+          display: flex;
+          cursor: pointer;
 
-        svg {
-          color: #6d7e87;
+          svg {
+            color: #6d7e87;
 
-          margin-top: -15px;
-          @include md {
-            margin-top: 0px;
+            margin-top: -15px;
+            @include md {
+              margin-top: 0px;
+            }
           }
         }
       }
     }
-  }
-  &.sticky-header {
-    position: sticky;
-    top: 0;
-    transform: translateY(-60px);
-    animation: StickyHeader 0.3s ease forwards;
+    &.sticky-header {
+      position: sticky;
+      top: 0;
+      transform: translateY(-60px);
+      animation: StickyHeader 0.3s ease forwards;
+    }
   }
 }
 
@@ -171,5 +174,22 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+.header-for-desktop {
+  display: none;
+
+  @include lg {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.header-for-mobile {
+  display: flex;
+  flex-direction: column;
+
+  @include lg {
+    display: none;
   }
 }

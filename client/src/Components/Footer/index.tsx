@@ -1,7 +1,4 @@
-import { Container, Row, Col } from "reactstrap";
-import { FaFacebookF, FaLinkedinIn, FaPinterest } from "react-icons/fa";
-import { AiOutlineTwitter } from "react-icons/ai";
-
+import { AiFillHeart, AiOutlineArrowUp } from "react-icons/ai";
 import "./index.scss";
 
 interface IProps {}
@@ -9,92 +6,142 @@ interface IProps {}
 const Footer: React.FC<IProps> = ({}) => {
   return (
     <div className="footer">
-      <Container>
-        <Row>
-          <Col md={4} className="d-flex justify-content-center">
-            <div className="footer-section-1">
-              <div className="footer-section-head">About Us</div>
-              <div
-                style={{
-                  width: "100%",
-                  height: "1px",
-                  backgroundColor: "grey",
-                  marginTop: "15px",
-                }}
-              ></div>
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Donec odio. Quisque volutpat mattis eros. Nullam malesuada
-                  erat ut turpis. Suspendisse urna nibh, viverra non
-                </p>
+      <footer className="text-center text-lg-start bg-white text-muted">
+        <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+          <div className="me-5 d-none d-lg-block">
+            <span>Get connected with us on social networks:</span>
+          </div>
 
-                <div className="footer--icons">
-                  <div className="footer-icon">
-                    <FaFacebookF />
-                  </div>
-                  <div className="footer-icon">
-                    <AiOutlineTwitter />
-                  </div>
-                  <div className="footer-icon">
-                    <FaPinterest />
-                  </div>
-                  <div className="footer-icon">
-                    <FaLinkedinIn />
-                  </div>
-                </div>
+          <div>
+            <a href="" className="me-4 link-secondary">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="" className="me-4 link-secondary">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="" className="me-4 link-secondary">
+              <i className="fab fa-google"></i>
+            </a>
+            <a href="" className="me-4 link-secondary">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="" className="me-4 link-secondary">
+              <i className="fab fa-linkedin"></i>
+            </a>
+            <a href="" className="me-4 link-secondary">
+              <i className="fab fa-github"></i>
+            </a>
+          </div>
+        </section>
+
+        <section className="">
+          <div className="container text-center text-md-start mt-5">
+            <div className="row mt-3">
+              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 className="text-uppercase fw-bold mb-4">
+                  <i className="fas fa-gem me-3 text-secondary"></i>ShopZam
+                </h6>
+                <p>
+                  Here you can use rows and columns to organize your footer
+                  content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                  elit.
+                </p>
+              </div>
+
+              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+                <p>
+                  <a href="#!" className="text-reset">
+                    Angular
+                  </a>
+                </p>
+                <p>
+                  <a href="#!" className="text-reset">
+                    React
+                  </a>
+                </p>
+                <p>
+                  <a href="#!" className="text-reset">
+                    Vue
+                  </a>
+                </p>
+                <p>
+                  <a href="#!" className="text-reset">
+                    Laravel
+                  </a>
+                </p>
+              </div>
+
+              <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 className="text-uppercase fw-bold mb-4">Information</h6>
+                <p>
+                  <a href="#!" className="text-reset">
+                    Shipping and Policies
+                  </a>
+                </p>
+                <p>
+                  <a href="#!" className="text-reset">
+                    Delivery
+                  </a>
+                </p>
+                <p>
+                  <a href="#!" className="text-reset">
+                    About Us
+                  </a>
+                </p>
+                <p>
+                  <a href="#!" className="text-reset">
+                    My Account
+                  </a>
+                </p>
+                <p>
+                  <a href="#!" className="text-reset">
+                    Asked Question
+                  </a>
+                </p>
+                <p>
+                  <a href="#!" className="text-reset">
+                    Browse Products
+                  </a>
+                </p>
+              </div>
+
+              <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <h6 className="text-uppercase fw-bold mb-4">Contact Us</h6>
+                <p>
+                  <i className="fas fa-home me-3 text-secondary"></i> New York,
+                  NY 10012, US
+                </p>
+                <p>
+                  <i className="fas fa-envelope me-3 text-secondary"></i>
+                  info@example.com
+                </p>
+                <p>
+                  <i className="fas fa-phone me-3 text-secondary"></i> + 01 234
+                  567 88
+                </p>
+                <p>
+                  <i className="fas fa-print me-3 text-secondary"></i> + 01 234
+                  567 89
+                </p>
               </div>
             </div>
-          </Col>
-          <Col md={4} className="d-flex justify-content-center">
-            <div className="footer-section-2">
-              <div className="footer-section-head">Information</div>
-              <div
-                style={{
-                  width: "100%",
-                  height: "1px",
-                  backgroundColor: "grey",
-                  marginTop: "15px",
-                }}
-              ></div>
-              <ul>
-                <li>Shipping and Policies</li>
-                <li>Delivery</li>
-                <li>About Us</li>
-                <li>My Account</li>
-                <li>Asked Question</li>
-                <li>Browse Products</li>
-              </ul>
-            </div>
-          </Col>
-          <Col md={4} className="d-flex justify-content-center">
-            <div className="footer-section-3">
-              <div className="footer-section-head">Contact Us</div>
-              <div
-                style={{
-                  width: "100%",
-                  height: "1px",
-                  backgroundColor: "grey",
-                  marginTop: "15px",
-                }}
-              ></div>
-              <div className="footer-address">
-                <span>
-                  <b style={{ color: "white" }}>ADD:</b> 123 Suspendis,
-                  Sollicitudin District, Accums
-                </span>
-                <span>Fringilla</span>
-                <span>
-                  <b style={{ color: "white" }}>TEL:</b> (+84) 0123456789
-                </span>
-                <span>
-                  <b style={{ color: "white" }}>MAIL:</b> demo@fieldthemes.com
-                </span>
-              </div>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </section>
+
+        <div
+          className="d-flex align-items-center justify-content-between text-center p-3"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.025)" }}
+        >
+          <div className="copyright-sec-icon">
+            <AiFillHeart size={24} />
+          </div>
+          <div>Copyright © 2019 FieldThemes. All Rights Reserved.</div>
+          <div className="copyright-sec-icon">
+            <AiOutlineArrowUp size={24} />
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

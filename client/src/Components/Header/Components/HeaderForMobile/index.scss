@@ -1,0 +1,26 @@
+.main-header {
+  display: flex;
+  flex-direction: column;
+
+  .main-header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #6d7e87;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 15px;
+  }
+
+  .main-header-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 0px;
+    color: #6d7e87;
+    cursor: pointer;
+  }
+}
