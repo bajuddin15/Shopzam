@@ -36,6 +36,18 @@ const Products: React.FC<IProps> = ({ title }) => {
         <div className="btn-show-more">
           <button>Show More</button>
         </div>
+        <Col lg={3} md={6} xs={12}>
+          <Product />
+        </Col>
+        <Col lg={3} md={6} xs={12}>
+          <Product />
+        </Col>
+        <Col lg={3} md={6} xs={12}>
+          <Product />
+        </Col>
+        <Col lg={3} md={6} xs={12}>
+          <Product />
+        </Col>
       </Row>
     </Container>
   );

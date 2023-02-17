@@ -11,6 +11,7 @@ const MenuClick: React.FC<IProps> = () => {
     <div className="menu-click">
       <div className="menu-items">
         <div className="menu-item menu-item-border">
+        <div className="menu-item">
           <FiLogIn size={24} />
           Sign In
         </div>

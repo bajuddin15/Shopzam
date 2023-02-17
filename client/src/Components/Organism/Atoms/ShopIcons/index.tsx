@@ -1,5 +1,6 @@
 import React from "react";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import "./index.scss";
 
@@ -26,3 +27,4 @@ const ShopWishlistIcon: React.FC<IProps> = () => {
   );
 };
 export { ShopCartIcon, ShopWishlistIcon };
+export { ShopCartIcon };

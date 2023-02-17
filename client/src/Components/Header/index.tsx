@@ -5,6 +5,7 @@ import { BiSearch, BiMenu } from "react-icons/bi";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import useData from "./data";
 
@@ -24,6 +25,17 @@ const HeaderForDesktop: React.FC<IProps> = ({}) => {
   const { state, navLinks, setToggle, setActiveLink, setShowMenuClick } =
     useData();
   const { toggle, activeLink, scrolled, showMenuClick } = state;
+const Header: React.FC<IProps> = ({}) => {
+  const { state, navLinks, setToggle, setActiveLink, setShowMenuClick } =
+    useData();
+  const {
+    toggle,
+    isResponsive,
+    activeLink,
+    windowSize,
+    scrolled,
+    showMenuClick,
+  } = state;
 
   return (
     <>
@@ -54,6 +66,26 @@ const HeaderForDesktop: React.FC<IProps> = ({}) => {
                   </Link>
                 ))}
               </ul>
+              {!isResponsive && (
+                <ul>
+                  {navLinks.map((link) => (
+                    <Link
+                      to="/"
+                      key={link.id}
+                      className={
+                        link.id === activeLink
+                          ? "active nav-link"
+                          : "inactive nav-link"
+                      }
+                      onClick={(linkId) =>
+                        setActiveLink(linkId === activeLink ? null : linkId)
+                      }
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </ul>
+              )}
               <div className="icons">
                 <div style={{ display: "flex", gap: "50px" }}>
                   <div className="icon">
@@ -88,6 +120,13 @@ const HeaderForDesktop: React.FC<IProps> = ({}) => {
                       </span>
                     </OverlayTrigger>
                   </div>
+                  </div>
+                  <div
+                    className="icon"
+                    onClick={() => setShowMenuClick(!showMenuClick)}
+                  >
+                    <BiMenu size={24} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -97,6 +136,11 @@ const HeaderForDesktop: React.FC<IProps> = ({}) => {
 
       {/* showmenuclick
       {showMenuClick && <MenuClick />} */}
+      {/* showmenuclick */}
+      {showMenuClick && <MenuClick />}
+
+      {/* responsive navbar */}
+      {toggle && <NavbarForMobile setToggle={setToggle} />}
     </>
   );
 };
