@@ -8,38 +8,42 @@ interface IProps {}
 const ShopDeal: React.FC<IProps> = () => {
   return (
     <div className="deal-compo">
-      <Container fluid>
-        <Row>
-          <Col md={6}>
-            <div className="deal-img">
-              <img
-                src="https://demo.fieldthemes.com/kayak/76-large_default/brown-bear-printed-sweater.jpg"
-                data-full-size-image-url="https://demo.fieldthemes.com/kayak/76-large_default/brown-bear-printed-sweater.jpg"
-                alt=""
-              />
+      <div className="deal-img">
+        <img
+          src="https://demo.fieldthemes.com/kayak/76-large_default/brown-bear-printed-sweater.jpg"
+          data-full-size-image-url="https://demo.fieldthemes.com/kayak/76-large_default/brown-bear-printed-sweater.jpg"
+          alt=""
+        />
+      </div>
+
+      <div className="deal-infos">
+        <div className="deal-info">
+          <h3>DEAL OF THE WEEK</h3>
+          <div className="deal-underline"></div>
+          <span>Sale is only in a week up to 50% off</span>
+          <div className="deal-clock">
+            <div className="deal-cls">
+              <div className="deal-cl">123</div>
+              <span>Days</span>
             </div>
-          </Col>
-          <Col
-            md={6}
-            className="deal-infos d-flex align-items-center justify-content-center"
-          >
-            <div className="deal-info">
-              <h3>DEAL OF THE WEEK</h3>
-              <div></div>
-              <div>Sale is only in a week up to 50% off</div>
-              <div>
-                <div>123</div>
-                <div>123</div>
-                <div>123</div>
-                <div>123</div>
-              </div>
-              <div className="btn-show-more">
-                <button>Shop Now</button>
-              </div>
+            <div className="deal-cls">
+              <div className="deal-cl">123</div>
+              <span>Hours</span>
             </div>
-          </Col>
-        </Row>
-      </Container>
+            <div className="deal-cls">
+              <div className="deal-cl">123</div>
+              <span>Mins</span>
+            </div>
+            <div className="deal-cls">
+              <div className="deal-cl">123</div>
+              <span>Sec</span>
+            </div>
+          </div>
+          <div className="btn-show-now">
+            <button>Shop Now</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

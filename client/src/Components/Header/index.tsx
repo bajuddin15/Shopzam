@@ -76,7 +76,7 @@ const HeaderForDesktop: React.FC<IProps> = ({}) => {
                             borderTop: "2px solid #6d7e87",
                           }}
                         >
-                          <Popover.Header as="h3">{`Popover bottom`}</Popover.Header>
+                          {/* <Popover.Header as="h3">{`Popover bottom`}</Popover.Header> */}
                           <Popover.Body>
                             <MenuClick />
                           </Popover.Body>
@@ -97,22 +97,31 @@ const HeaderForDesktop: React.FC<IProps> = ({}) => {
 
       {/* showmenuclick
       {showMenuClick && <MenuClick />} */}
-
-      {/* responsive navbar */}
-      {toggle && <NavbarForMobile setToggle={setToggle} />}
     </>
   );
 };
 
 const Header: React.FC<IProps> = ({}) => {
+  const { state, navLinks, setToggle, setActiveLink, setShowMenuClick } =
+    useData();
+
+  const { toggle, activeLink, scrolled, showMenuClick } = state;
+
   return (
     <>
-      <div className="header-for-desktop">
-        <HeaderForDesktop />
-      </div>
-      <div className="header-for-mobile">
-        <HeaderForMobile title="KAYAK" />
-      </div>
+      {!toggle && (
+        <>
+          <div className="header-for-desktop">
+            <HeaderForDesktop />
+          </div>
+          <div className="header-for-mobile">
+            <HeaderForMobile title="KAYAK" setToggle={setToggle} />
+          </div>
+        </>
+      )}
+
+      {/* responsive navbar */}
+      {toggle && <NavbarForMobile setToggle={setToggle} />}
     </>
   );
 };

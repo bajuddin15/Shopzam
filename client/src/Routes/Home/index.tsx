@@ -5,7 +5,7 @@ interface IProps {}
 
 const Home: React.FC<IProps> = ({}) => {
   return (
-    <div style={{ margin: "50px" }}>
+    <div>
       <Products title="Tab Products" />
       <ShopDeal />
       <Products title="NEW ARRIVALS" />
