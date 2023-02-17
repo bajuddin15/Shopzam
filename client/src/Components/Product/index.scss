@@ -1,0 +1,108 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .product-img {
+    width: 300px;
+    height: 350px;
+    background-color: rgba(98, 96, 96, 0.08);
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-actions {
+      display: none;
+    }
+
+    .product-badge {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      position: absolute;
+      top: 10px;
+      padding: 0px 10px;
+      font-size: 13px;
+
+      .product-new-badge {
+        background-color: black;
+        color: white;
+        padding: 6px 15px;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+      .product-sale-badge {
+        padding: 6px 15px;
+        border-radius: 50px;
+        background-color: rgba(197, 190, 190, 0.2);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+    gap: 10px;
+
+    .product-name {
+      font-size: 18px;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+
+      .first-child {
+        font-size: 24px;
+        font-weight: bold;
+        color: #6d7e87;
+      }
+      .second-child {
+        text-decoration: line-through;
+      }
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &:hover {
+    .product-actions {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 50%;
+      left: 0;
+
+      .product-action-icon {
+        width: 100%;
+        height: 100%;
+        height: "100%";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        padding: 13px 0px;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 8);
+        }
+      }
+    }
+  }
+}

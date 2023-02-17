@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { BiSearch, BiMenu } from "react-icons/bi";
-import { RxCross2 } from "react-icons/rx";
+
+import Button from "react-bootstrap/Button";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
 
 import useData from "./data";
 
 import "./index.scss";
+import NavbarForMobile from "./Components/NavbarForMobile";
+import { ShopCartIcon } from "../Organism/Atoms/ShopIcons";
+import MenuClick from "./Components/MenuClick";
+import HeaderForMobile from "./Components/HeaderForMobile";
 
 interface IProps {}
-interface IPropsForMobile {
-  setToggle: any;
-}
 
 interface IState {
   toggle: boolean;
 }
 
-const Header: React.FC<IProps> = ({}) => {
-  const { state, setToggle } = useData();
-  const { toggle, windowSize, scrolled } = state;
-
-  let isResponsive = windowSize[0] < 900;
+const HeaderForDesktop: React.FC<IProps> = ({}) => {
+  const { state, navLinks, setToggle, setActiveLink, setShowMenuClick } =
+    useData();
+  const { toggle, activeLink, scrolled, showMenuClick } = state;
 
   return (
     <>
@@ -32,63 +36,92 @@ const Header: React.FC<IProps> = ({}) => {
               </div>
             </div>
             <div className="right">
-              {!isResponsive && (
-                <ul>
-                  <li>Home</li>
-                  <li>Shop</li>
-                  <li>Services</li>
-                  <li>Contact</li>
-                  <li>Blog</li>
-                  <li>About</li>
-                </ul>
-              )}
+              <ul>
+                {navLinks.map((link) => (
+                  <Link
+                    to="/"
+                    key={link.id}
+                    className={
+                      link.id === activeLink
+                        ? "active nav-link"
+                        : "inactive nav-link"
+                    }
+                    onClick={(linkId) =>
+                      setActiveLink(linkId === activeLink ? null : linkId)
+                    }
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </ul>
               <div className="icons">
-                {!isResponsive && (
+                <div style={{ display: "flex", gap: "50px" }}>
                   <div className="icon">
                     <BiSearch size={24} />
                   </div>
-                )}
-                {isResponsive && (
-                  <div className="icon" onClick={() => setToggle(true)}>
-                    <BiMenu size={24} />
+                  <div className="icon">
+                    <ShopCartIcon />
                   </div>
-                )}
+                  <div className="icon">
+                    <OverlayTrigger
+                      trigger="click"
+                      key="bottom"
+                      placement="bottom"
+                      overlay={
+                        <Popover
+                          id={`popover-positioned-bottom`}
+                          style={{
+                            zIndex: "99999",
+                            marginTop: "30px",
+                            borderTop: "2px solid #6d7e87",
+                          }}
+                        >
+                          {/* <Popover.Header as="h3">{`Popover bottom`}</Popover.Header> */}
+                          <Popover.Body>
+                            <MenuClick />
+                          </Popover.Body>
+                        </Popover>
+                      }
+                    >
+                      <span>
+                        <BiMenu size={24} />
+                      </span>
+                    </OverlayTrigger>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* responsive navbar */}
-      {toggle && <NavbarForMobile setToggle={setToggle} />}
+      {/* showmenuclick
+      {showMenuClick && <MenuClick />} */}
     </>
   );
 };
 
-const NavbarForMobile: React.FC<IPropsForMobile> = ({ setToggle }) => {
+const Header: React.FC<IProps> = ({}) => {
+  const { state, navLinks, setToggle, setActiveLink, setShowMenuClick } =
+    useData();
+
+  const { toggle, activeLink, scrolled, showMenuClick } = state;
+
   return (
     <>
-      <div className="navbar-mobile slide-header">
-        <div className="mobile-header">
-          <div className="app-logo">
-            <p>KAYAK</p>
+      {!toggle && (
+        <>
+          <div className="header-for-desktop">
+            <HeaderForDesktop />
           </div>
-          <div className="icon cross-icon" onClick={() => setToggle(false)}>
-            <RxCross2 size={24} />
+          <div className="header-for-mobile">
+            <HeaderForMobile title="KAYAK" setToggle={setToggle} />
           </div>
-        </div>
+        </>
+      )}
 
-        <div className="mobile-body">
-          <ul>
-            <li>Home</li>
-            <li>Shop</li>
-            <li>Services</li>
-            <li>Contact</li>
-            <li>Blog</li>
-            <li>About</li>
-          </ul>
-        </div>
-      </div>
+      {/* responsive navbar */}
+      {toggle && <NavbarForMobile setToggle={setToggle} />}
     </>
   );
 };

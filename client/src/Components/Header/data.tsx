@@ -2,33 +2,28 @@ import * as React from "react";
 
 interface IState {
   toggle: boolean;
-  windowSize: any;
+  showMenuClick: boolean;
+  activeLink: any;
   scrolled: boolean;
 }
 
 const useData = () => {
   const [toggle, setToggle] = React.useState<IState["toggle"]>(false);
+
+  const [activeLink, setActiveLink] =
+    React.useState<IState["activeLink"]>(null);
   const [scrolled, setScrolled] = React.useState<IState["scrolled"]>(false);
-  const [windowSize, setWindowSize] = React.useState([
-    window.innerWidth,
-    window.innerHeight,
-  ]);
+  const [showMenuClick, setShowMenuClick] =
+    React.useState<IState["showMenuClick"]>(false);
 
-  React.useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowSize([window.innerWidth, window.innerHeight]);
-    };
-
-    window.addEventListener("resize", handleWindowResize);
-
-    if (windowSize[0] >= 900) {
-      setToggle(false);
-    }
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  });
+  const navLinks = [
+    { id: 1, label: "Home", href: "#" },
+    { id: 2, label: "Shop", href: "#" },
+    { id: 3, label: "Services", href: "#" },
+    { id: 4, label: "Contact", href: "#" },
+    { id: 5, label: "Blog", href: "#" },
+    { id: 6, label: "About", href: "#" },
+  ];
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -45,14 +40,17 @@ const useData = () => {
 
   const state: IState = {
     toggle,
-    windowSize,
+    activeLink,
     scrolled,
+    showMenuClick,
   };
-  console.log("toggle", toggle);
 
   return {
     state,
+    navLinks,
     setToggle,
+    setActiveLink,
+    setShowMenuClick,
   };
 };
 
