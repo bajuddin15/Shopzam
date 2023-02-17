@@ -9,6 +9,7 @@ const Home: React.FC<IProps> = ({}) => {
       <Products title="Tab Products" />
       <ShopDeal />
       <Products title="NEW ARRIVALS" />
+      <h2>next section</h2>
     </div>
   );
 };
